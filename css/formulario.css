@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.balance {
+    height: 20vh;
+    align-items: bottom;
+}
+
+.formulario {
+    width: 50%;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.formulario input {
+    width: 100%;
+    height: 100%;
+    padding-top: 15px;
+    border: none;
+    pointer-events: initial;
+    outline: none;
+}
+
+.formulario label {
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    border-bottom: 0.5px solid #0d8b8f;
+}
+
+.formulario label::after {
+    content: "";
+    position: absolute;
+    left: 0%;
+    bottom: -2px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid #056622;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.contenido-etiqueta {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.formulario input:focus+.etiqueta-nombre .contenido-etiqueta,
+.formulario input:valid+.etiqueta-nombre .contenido-etiqueta {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: #056622;
+}
+
+.formulario input:focus+.etiqueta-nombre::after,
+.formulario input:valid+.etiqueta-nombre::after {
+    transform: translateX(0%);
+}
